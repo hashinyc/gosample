@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_hashinyc_gosample_1746653014760-pr-trigger-input-set
+  identifier: Build_hashinyc_gosample_1746653014760prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_hashinyc_gosample_1746653014760
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
