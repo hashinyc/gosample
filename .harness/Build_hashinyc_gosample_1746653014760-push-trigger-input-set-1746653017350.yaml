@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_hashinyc_gosample_1746653014760-push-trigger-input-set
+  identifier: Build_hashinyc_gosample_1746653014760pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_hashinyc_gosample_1746653014760
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
