@@ -20,12 +20,15 @@ pipeline:
           execution:
             steps:
               - step:
-                  identifier: gobuild
-                  name: go_build
-                  spec:
-                    command: go build
-                  timeout: ""
                   type: Run
+                  identifier: build_go_app
+                  name: Build Go App
+                  spec:
+                    command: |-
+                      echo "Welcome to Harness CI"
+                      go build
+                      go test
+                  timeout: ""
               - step:
                   identifier: gotestcoverage
                   name: go_test_coverage
@@ -37,7 +40,12 @@ pipeline:
                   identifier: gotestreport
                   name: go_test_report
                   spec:
-                    command: "export GOBIN=/home/harness/go/bin\n\t\texport PATH=/home/harness/go/bin:$PATH\n\t\techo $PATH\n\t\tgo install github.com/jstemmer/go-junit-report/v2@latest\n\t\tgo test -v 2>&1 ./... | go-junit-report -set-exit-code > report.xml"
+                    command: |
+                      export GOBIN=/home/harness/go/bin
+                      export PATH=/home/harness/go/bin:$PATH
+                      echo $PATH
+                      go install github.com/jstemmer/go-junit-report/v2@latest
+                      go test -v 2>&1 ./... | go-junit-report -set-exit-code > report.xml
                     reports:
                       spec:
                         paths:
