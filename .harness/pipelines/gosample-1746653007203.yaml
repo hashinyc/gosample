@@ -59,7 +59,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: account.DockerHub
-                    repo: <+input>
+                    repo: baiyun/harnessgo
                     tags:
                       - latest
           platform:
